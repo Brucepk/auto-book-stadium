@@ -58,6 +58,7 @@ class BookStadium():
                     if head:
                         print('登录态已失效，%s号场地还有，请登录预定！！' % i)
                         send_email.sendMail()
+                        self.driver.quit()
                         return
                     sleep(2)
                     scroll_bottom = "window.scrollTo(0,document.body.scrollHeight)"     # 获取body的高度，滑到底部
@@ -68,6 +69,7 @@ class BookStadium():
                     sleep(3)
                     print('%s号场地预定成功，请马上支付！！' % i)
                     send_email.sendMail()
+                    self.driver.quit()
                     return
             sleep(int(format(random.randint(600, 1200))))   # 随机等待10-20分钟
             self.driver.refresh()
@@ -75,9 +77,9 @@ class BookStadium():
 
 if __name__ == '__main__':
     bs = BookStadium()
-    city_id = 321
-    search_text = '上海霜天羽毛球馆'
-    book_time = '周五'
+    city_id = 321    # 上海的ID，其他城市请替换
+    search_text = 'xxx羽毛球馆'
+    book_time = '周四'
     bs.search(city_id, search_text)
     sleep(3)
     bs.book_stadium(book_time)
