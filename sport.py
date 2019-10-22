@@ -53,6 +53,12 @@ class BookStadium():
                     site.click()      # 场地可预订的话点击场地
                     sleep(3)
                     self.driver.find_element_by_xpath('//*[@id="booking"]/div[3]/div[2]/div[2]/a').click()  # 点击提交订单按钮
+                    # 加上登录态失效时的判断，提交订单后，如果弹出登录页面，也会发送邮件给自己提醒场地有空出来
+                    head = self.driver.find_element_by_class_name('headText')
+                    if head:
+                        print('登录态已失效，%s号场地还有，请登录预定！！' % i)
+                        send_email.sendMail()
+                        return
                     sleep(2)
                     scroll_bottom = "window.scrollTo(0,document.body.scrollHeight)"     # 获取body的高度，滑到底部
                     self.driver.execute_script(scroll_bottom)

@@ -10,3 +10,7 @@
 ![公众号](https://github.com/Brucepk/pk.github.io/blob/master/gzh.jpg)
 
 #### 一个专门面向 Python 程序员的社区，主要分享 Python 爬虫、Python自动化测试、数据分析等，墙裂推荐关注。
+
+#### 代码优化日志
+
+--2019/1022--当登录状态失效时，也会发送邮件给自己，也可以马上在app上预定场地（订场地没抢票那么火爆，一般每人一直去刷的）
